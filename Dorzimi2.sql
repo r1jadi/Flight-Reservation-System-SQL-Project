@@ -185,7 +185,6 @@ VALUES
 Select *
 From SistemiWEB
 
--- Table: Perdoruesi
 INSERT INTO Perdoruesi (ID_Perdoruesi, Emri, Mbiemri, Destinacioni, MenyraEPageses, Qyteti, Rruga, ZIPCode, ID_Perdoruesi_FK, SistemiID, BankaID, AeroplaniID)
 VALUES
 (1, 'John', 'Doe', 'London', 'Credit Card', 'Seoul', 'Maple Avenue', 90210, 1, 1, 1, 1),
@@ -199,14 +198,36 @@ VALUES
 (9, 'Jackson', 'Hayes', 'Barcelona', 'Cash', 'Casablanca', 'Magnolia Court', 20001, 9, 9, 9, 9),
 (10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10, 10, 10, 10)
 
--- Table: NrTel
+
 INSERT INTO NrTel (IDNrTel, ID_Perdoruesi, Emri, Mbiemri, Destinacioni, MenyraEPageses, Qyteti, Rruga, ZIPCode, PerdoruesiID)
 VALUES
-(1, 1, 'John', 'Doe', 'London', 'Credit Card', 'London', 'Street 1', 12345, 1),
-(2, 2, 'Jane', 'Smith', 'Paris', 'PayPal', 'Paris', 'Street 2', 54321, 2),
--- ... add 8 more records ...
+(5551234567, 1, 'John', 'Doe', 'London', 'Credit Card', 'Seoul', 'Maple Avenue', 90210, 1),
+(9876543210, 2, 'Olivia', 'Thompson', 'Paris', 'PayPal', 'Vancouver', 'Elm Street', 10001, 2),
+(1234567890, 3, 'Ethan', 'Reynolds', 'Tokyo', 'Cash', 'Nairobi', 'Oak Lane', 30301, 3),
+(5559876543, 4, 'Ava', 'Mitchell', 'Istanbul', 'PayPal', 'Reykjavik', 'Cedar Boulevard', 75201, 4),
+(7890123456, 5, 'Mason', 'Turner', 'Cairo', 'Credit Card', 'Lima', 'Pinecrest Drive', 94102, 5),
+(2345678901, 6, 'Zoe', 'Ramirez', 'Sydney', 'PayPal', 'Munich', 'Willow Lane', 60601, 6),
+(8765432109, 7, 'Caleb', 'Morgan', 'Vancouver', 'Credit Card', 'Mumbai', 'Birchwood Terrace', 90045, 7),
+(3210987654, 8, 'Sophia', 'Patel', 'Mumbai', 'PayPal', 'New Orleans', 'Sycamore Lane', 33101, 8),
+(4567890123, 9, 'Jackson', 'Hayes', 'Barcelona', 'Cash', 'Casablanca', 'Magnolia Court', 20001, 9),
+(9998887777, 10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10)
 
--- Continue with similar inserts for other tables...
+
+INSERT INTO Pagesa (ID_Perdoruesi, ID_Pagesa, DataPageses, ShumaPageses, PerdoruesiID)
+VALUES
+  (1, 1, '2023-01-01', 100),
+  (2, 2, '2023-01-02', 150),
+  (3, 3, '2023-01-03', 200),
+  (4, 4, '2023-01-04', 120),
+  (5, 5, '2023-01-05', 180),
+  (6, 6, '2023-01-06', 90),
+  (7, 7, '2023-01-07', 130),
+  (8, 8, '2023-01-08', 110),
+  (9, 9, '2023-01-09', 160),
+  (10, 10, '2023-01-10', 140);
+
+  Select *
+  From Pagesa
 
 -- Table: Marreveshje
 INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja)
