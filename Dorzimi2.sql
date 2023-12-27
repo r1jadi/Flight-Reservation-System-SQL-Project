@@ -182,6 +182,9 @@ VALUES
 (9, 'www.sistemi10.com', '12:00:00', '12:00:12'),
 (10, 'www.sistemi11.com', '11:00:00', '11:00:21')
 
+Select *
+From SistemiWEB
+
 -- Table: Perdoruesi
 INSERT INTO Perdoruesi (ID_Perdoruesi, Emri, Mbiemri, Destinacioni, MenyraEPageses, Qyteti, Rruga, ZIPCode, ID_Perdoruesi_FK, SistemiID, BankaID, AeroplaniID)
 VALUES
