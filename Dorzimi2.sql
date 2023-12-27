@@ -128,7 +128,7 @@ Create Table Aeroporti( -- ka pune
 	
 );
 
-Create Table Agjensioni(
+Create Table Agjensioni( -- u kry
 	ID_Agjensioni int primary key,
 	Emri varchar(15) not null,
 	Licensa varchar(15) not null,
@@ -342,17 +342,25 @@ VALUES
 
 INSERT INTO Agjensioni (ID_Agjensioni, Emri, Licensa, Rruga, Qyteti)
 VALUES
-  (1, 'Delta Air Lines', 'License1', 'Hartsfield-Jackson', 'Atlanta'),
-  (2, 'British Airways', 'License2', 'London', 'Waterside'),
-  (3, 'Emirates', 'License3', 'Airport Road', 'Dubai'),
-  (4, 'Agjensioni4', 'License4', 'Street4', 'City4'),
-  (5, 'Agjensioni5', 'License5', 'Street5', 'City5'),
-  (6, 'Agjensioni6', 'License6', 'Street6', 'City6'),
-  (7, 'Agjensioni7', 'License7', 'Street7', 'City7'),
-  (8, 'Agjensioni8', 'License8', 'Street8', 'City8'),
-  (9, 'Agjensioni9', 'License9', 'Street9', 'City9'),
-  (10, 'Agjensioni10', 'License10', 'Street10', 'City10');
+  (1, 'Delta Air Lines', 'ATPL', 'Hartsfield-Jackson', 'Atlanta'),
+  (2, 'British Airways', 'ATPL', 'London', 'Waterside'),
+  (3, 'Emirates', 'ATPL', 'Airport Road', 'Dubai'),
+  (4, 'Air France', 'ATPL', '45 Rue de Paris', 'Paris'),
+  (5, 'Air China', 'ATPL', '30 Tianzhu Road', 'Beijing'),
+  (6, 'Qantas Airways', 'ATPL', '10 Bourke Road', 'New South Wales'),
+  (7, 'American Airlines', 'ATPL', '1 Skyview Drive', 'Texas'),
+  (8, 'Turkish Airlines', 'ATPL', 'Ataturk Airport', 'Istanbul'),
+  (9, 'Singapore Airlines', 'ATPL', '25 Airline Road', 'Singapore'),
+  (10, 'Lufthansa', 'ATPL', 'Terminal 1', 'Cologne');
 
+ALTER TABLE Agjensioni
+ALTER COLUMN Rruga varchar(50);
+
+ALTER TABLE Agjensioni
+ALTER COLUMN Emri varchar(50);
+
+Select * 
+From Agjensioni
 -- Table: Marreveshje
 INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja)
 VALUES
