@@ -2,7 +2,7 @@ Create Database Sistemi
 
 Use Sistemi 
 
-Create table Perdoruesi(
+Create table Perdoruesi( --veq me excecute
 	ID_Perdoruesi int Primary Key,
 	Emri varchar(15) not null,
 	Mbiemri varchar(15) not null,
@@ -22,14 +22,14 @@ Create table Perdoruesi(
 	AeroplaniID INT FOREIGN KEY REFERENCES Aeroplani(ID_Aeroplani)
 );
 
-Create Table SistemiWEB(
+Create Table SistemiWEB( --u kry
 	ID_Sistemi int Primary Key,
 	Webfaqja varchar(30) not null,
 	KohaFillimit time,
 	KohaMbarimit time
 );
 
-CREATE TABLE NrTel (
+CREATE TABLE NrTel ( --veq me excecute
     IDNrTel INT,
     ID_Perdoruesi INT,
     Emri VARCHAR(15) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE NrTel (
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-CREATE TABLE Pagesa (
+CREATE TABLE Pagesa ( --u kry
     ID_Perdoruesi INT,
     ID_Pagesa INT,
     DataPageses DATE NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE Pagesa (
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-Create Table Banka(
+Create Table Banka( -- u kry
 	ID_Banka int Primary Key,
 	NumriKontaktues int not null,
 	Shteti varchar(15) not null,
@@ -63,7 +63,7 @@ Create Table Banka(
 	Rruga varchar(15) not null
 );
 
-Create Table Rezervimi(
+Create Table Rezervimi( -- u kry
 	ID_Rezervimi int Primary Key,
 	Data date not null,
 	Ulesja int not null,
@@ -227,7 +227,61 @@ VALUES
   (10, 10, '2023-01-10', 140);
 
   Select *
-  From Pagesa
+  From Pagesa -- me bo sc
+
+INSERT INTO Banka (ID_Banka, NumriKontaktues, Shteti, ZIPCode, Rruga)
+VALUES
+  (1, 123456789, 'Albania', 12345, 'Shqiperia Avenue'),
+  (2, 987654321, 'Bosnia and Herzegovina', 54321, 'Sarajevo Street'),
+  (3, 111223344, 'Bulgaria', 67890, 'Sofia Boulevard'),
+  (4, 555666777, 'Croatia', 11111, 'Dubrovnik Lane'),
+  (5, 999888777, 'Greece', 22222, 'Athens Avenue'),
+  (6, 333222111, 'Kosovo', 33333, 'Pristina Place'),
+  (7, 777888999, 'Montenegro', 44444, 'Podgorica Drive'),
+  (8, 444555666, 'North Macedonia', 55555, 'Skopje Street'),
+  (9, 666999888, 'Romania', 66666, 'Bucharest Boulevard'),
+  (10, 888777666, 'Turkey', 77777, 'Istambul main');
+
+ALTER TABLE Banka
+ALTER COLUMN Rruga varchar(50);
+
+ALTER TABLE Banka
+ALTER COLUMN Shteti varchar(50);
+
+Select * 
+From Banka
+
+INSERT INTO Rezervimi (ID_Rezervimi, Data, Ulesja, NumriFluturimit)
+VALUES
+  (1, '2023-01-01', 1, 101),
+  (2, '2023-01-02', 2, 102),
+  (3, '2023-01-03', 3, 103),
+  (4, '2023-01-04', 4, 104),
+  (5, '2023-01-05', 5, 105),
+  (6, '2023-01-06', 6, 106),
+  (7, '2023-01-07', 7, 107),
+  (8, '2023-01-08', 8, 108),
+  (9, '2023-01-09', 9, 109),
+  (10, '2023-01-10', 10, 110);
+
+Select *
+From Rezervimi
+
+INSERT INTO Ushqimi (Emri, ID_Rezervimi, Lloji, DataProdhimit, DataSkadimit)
+VALUES
+  ('Sushi', 1, 'Kinez', '2023-01-01', '2023-01-10'),
+  ('Pasta Carbonara', 2, 'Pasta', '2023-01-02', '2023-01-11'),
+  ('Tacos', 3, 'Mexican', '2023-01-03', '2023-01-12'),
+  ('Chicken Curry', 4, 'Indian', '2023-01-04', '2023-01-13'),
+  ('Pizza', 5, 'Italian', '2023-01-05', '2023-01-14'),
+  ('Caesar Salad', 6, 'Greek', '2023-01-06', '2023-01-15'),
+  ('Chocolate', 7, 'Snack', '2023-01-07', '2023-01-16'),
+  ('Beef Stir-Fry', 8, 'Meat', '2023-01-08', '2023-01-17'),
+  ('Falafel Wrap', 9, 'Snack', '2023-01-09', '2023-01-18'),
+  ('Cheesecake', 10, 'Snack', '2023-01-10', '2023-01-19');
+
+Select *
+From Ushqimi -- me bo sc
 
 -- Table: Marreveshje
 INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja)
