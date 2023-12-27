@@ -1,4 +1,4 @@
-Create Database Sistemi
+﻿Create Database Sistemi
 
 Use Sistemi 
 
@@ -70,7 +70,7 @@ Create Table Rezervimi( -- u kry
 	NumriFluturimit int not null
 );
 
-Create Table Ushqimi(
+Create Table Ushqimi( -- u kry
 	Emri varchar(15),
 	ID_Rezervimi int,
     Lloji varchar(15) not null,
@@ -81,7 +81,7 @@ Create Table Ushqimi(
     RezervimiID INT FOREIGN KEY REFERENCES Rezervimi(ID_Rezervimi)
 );
 
-Create Table Permbajtja(
+Create Table Permbajtja( -- u kry
 	Emri varchar(15),
 	ID_Permbajtja int,
 	Lloji varchar(15) not null,
@@ -95,7 +95,7 @@ Create Table Permbajtja(
 	
 );
 
-Create Table Fluturimi(
+Create Table Fluturimi( -- ka pune
 	ID_Fluturimi int Primary Key,
 	Vendndodhja varchar(15) not null,
 	Destinacioni varchar(15) not null,
@@ -105,7 +105,7 @@ Create Table Fluturimi(
 	
 );
 
-Create Table Koha(
+Create Table Koha( -- ka pune
 	ID_Koha INT,
 	ID_Fluturimi INT,
 	Vendndodhja varchar not null,
@@ -117,7 +117,7 @@ Create Table Koha(
 
 );
 
-Create Table Aeroporti(
+Create Table Aeroporti( -- ka pune
 	ID_Aeroporti int primary key,
 	Emri varchar(15) not null,
 	Qyteti varchar(15) not null,
@@ -282,6 +282,76 @@ VALUES
 
 Select *
 From Ushqimi -- me bo sc
+
+INSERT INTO Permbajtja (Emri, ID_Permbajtja, Lloji, DataProdhimit, DataSkadimit, UshqimiEmri, UshqimiID)
+VALUES
+  ('Permbajtja1', 1, 'Kinez', '2023-01-01', '2023-01-10', 'Sushi', 1),
+  ('Permbajtja2', 2, 'Pasta', '2023-01-02', '2023-01-11', 'Pasta Carbonara', 2),
+  ('Permbajtja3', 3, 'Mexican', '2023-01-03', '2023-01-12', 'Tacos', 3),
+  ('Permbajtja4', 4, 'Indian', '2023-01-04', '2023-01-13', 'Chicken Curry', 4),
+  ('Permbajtja5', 5, 'Italian', '2023-01-05', '2023-01-14', 'Pizza', 5),
+  ('Permbajtja6', 6, 'Greek', '2023-01-06', '2023-01-15', 'Caesar Salad', 6),
+  ('Permbajtja7', 7, 'Snack', '2023-01-07', '2023-01-16', 'Chocolate', 7),
+  ('Permbajtja8', 8, 'Meat', '2023-01-08', '2023-01-17', 'Beef Stir-Fry', 8),
+  ('Permbajtja9', 9, 'Snack', '2023-01-09', '2023-01-18', 'Falafel Wrap', 9),
+  ('Permbajtja10', 10, 'Snack', '2023-01-10', '2023-01-19', 'Cheesecake', 10);
+
+  Select *
+  From Permbajtja
+
+INSERT INTO Fluturimi (ID_Fluturimi, Vendndodhja, Destinacioni, AeroplaniID, AgjensioniID)
+VALUES
+  (1, 'Atlanta', 'Beijing', 1, 1),
+  (2, 'Dubai', 'London', 2, 2),
+  (3, 'Tokyo', 'Los Angeles', 3, 3),
+  (4, 'Chicago', 'Istanbul', 4, 4),
+  (5, 'Singapore City', 'Frankfurt', 5, 5),
+  (6, 'Amsterdam', 'Hong Kong', 6, 6),
+  (7, 'New York City', 'Paris', 7, 7),
+  (8, 'Doha', 'Toronto', 8, 8),
+  (9, 'Sydney', 'Seoul', 9, 9),
+  (10, 'Munich', 'San Francisco', 10, 10);
+
+
+INSERT INTO Koha (ID_Koha, ID_Fluturimi, Vendndodhja, Destinacioni, FluturimiID)
+VALUES
+  (1, 1, 'Atlanta', 'Beijing', 1),
+  (2, 2, 'Dubai', 'London', 2),
+  (3, 3, 'Tokyo', 'Los Angeles', 3),
+  (4, 4, 'Chicago', 'Istanbul', 4),
+  (5, 5, 'Singapore City', 'Frankfurt', 5),
+  (6, 6, 'Amsterdam', 'Hong Kong', 6),
+  (7, 7, 'New York City', 'Paris', 7),
+  (8, 8, 'Doha', 'Toronto', 8),
+  (9, 9, 'Sydney', 'Seoul', 9),
+  (10, 10, 'Munich', 'San Francisco', 10);
+
+
+INSERT INTO Aeroporti (ID_Aeroporti, Emri, Qyteti, Shteti, Rruga, FluturimiID)
+VALUES
+  (1, 'Atlanta Airport', 'Atlanta', 'United States', 'Airport Boulevard', 1),
+  (2, 'Heathrow Airport', 'London', 'United Kingdom', 'Compass Centre', 2),
+  (3, 'Dubai Airport', 'Dubai', 'UAE', 'Airport Road', 3),
+  (4, 'CDG', 'Paris', 'France', 'Roissy-en-France', 4),
+  (5, 'Beijing Airport', 'Beijing', 'China', 'Airport North Road', 5),
+  (6, 'LAX', 'Los Angeles', 'United States', 'World Way', 6),
+  (7, 'Chicago Aeroport', 'Chicago', 'United States', 'West O Hare', 7),
+  (8, 'Istanbul Airport', 'Istanbul', 'Turkey', 'Tayakadın', 8),
+  (9, 'Singapore Airport ', 'Singapore', 'Singapore', 'Airport Boulevard', 9),
+  (10, 'Frankfurt Airport', 'Frankfurt', 'Germany', 'Hugo-Eckener-Ring', 10);
+
+INSERT INTO Agjensioni (ID_Agjensioni, Emri, Licensa, Rruga, Qyteti)
+VALUES
+  (1, 'Delta Air Lines', 'License1', 'Hartsfield-Jackson', 'Atlanta'),
+  (2, 'British Airways', 'License2', 'London', 'Waterside'),
+  (3, 'Emirates', 'License3', 'Airport Road', 'Dubai'),
+  (4, 'Agjensioni4', 'License4', 'Street4', 'City4'),
+  (5, 'Agjensioni5', 'License5', 'Street5', 'City5'),
+  (6, 'Agjensioni6', 'License6', 'Street6', 'City6'),
+  (7, 'Agjensioni7', 'License7', 'Street7', 'City7'),
+  (8, 'Agjensioni8', 'License8', 'Street8', 'City8'),
+  (9, 'Agjensioni9', 'License9', 'Street9', 'City9'),
+  (10, 'Agjensioni10', 'License10', 'Street10', 'City10');
 
 -- Table: Marreveshje
 INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja)
