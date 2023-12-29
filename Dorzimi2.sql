@@ -2,7 +2,7 @@
 
 Use Sistemi 
 
-Create table Perdoruesi( --veq me excecute
+Create table Perdoruesi( -- u kry
 	ID_Perdoruesi int Primary Key,
 	Emri varchar(15) not null,
 	Mbiemri varchar(15) not null,
@@ -29,7 +29,7 @@ Create Table SistemiWEB( --u kry
 	KohaMbarimit time
 );
 
-CREATE TABLE NrTel ( --veq me excecute
+CREATE TABLE NrTel ( -- u kry
     IDNrTel INT,
     ID_Perdoruesi INT,
     Emri VARCHAR(15) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE NrTel ( --veq me excecute
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-CREATE TABLE Pagesa ( --u kry
+CREATE TABLE Pagesa (
     ID_Perdoruesi INT,
     ID_Pagesa INT,
     DataPageses DATE NOT NULL,
@@ -95,7 +95,7 @@ Create Table Permbajtja( -- u kry
 	
 );
 
-Create Table Fluturimi( -- ka pune
+Create Table Fluturimi( -- u kry
 	ID_Fluturimi int Primary Key,
 	Vendndodhja varchar(15) not null,
 	Destinacioni varchar(15) not null,
@@ -105,7 +105,7 @@ Create Table Fluturimi( -- ka pune
 	
 );
 
-Create Table Koha( -- ka pune
+Create Table Koha( -- u kry
 	ID_Koha INT,
 	ID_Fluturimi INT,
 	Vendndodhja varchar not null,
@@ -117,7 +117,7 @@ Create Table Koha( -- ka pune
 
 );
 
-Create Table Aeroporti( -- ka pune
+Create Table Aeroporti( -- u kry
 	ID_Aeroporti int primary key,
 	Emri varchar(15) not null,
 	Qyteti varchar(15) not null,
@@ -137,7 +137,7 @@ Create Table Agjensioni( -- u kry
 );
 
 
-Create Table Aeroplani(
+Create Table Aeroplani(-- u kry
 	ID_Aeroplani int primary key,
 	Pronari varchar(15) not null,
 	Lloji varchar(15) not null,
@@ -146,7 +146,7 @@ Create Table Aeroplani(
 	AgjensioniID INT FOREIGN KEY REFERENCES Agjensioni(ID_Agjensioni)
 );
 
-Create Table Ulesja(
+Create Table Ulesja( -- u kry
 	ID_Aeroplani int,
 	ID_Ulesja int,
 	Lloji varchar(15) not null,
@@ -157,7 +157,7 @@ Create Table Ulesja(
 	AeroplaniID INT FOREIGN KEY REFERENCES Aeroplani(ID_Aeroplani)
 );
 
-Create Table Marreveshje(
+Create Table Marreveshje( --u kry
 	ID_Agjensioni INT,
 	ID_Aeroporti INT,
 
@@ -196,38 +196,52 @@ VALUES
 (7, 'Caleb', 'Morgan', 'Vancouver', 'Credit Card', 'Mumbai', 'Birchwood Terrace', 90045, 7, 7, 7, 7),
 (8, 'Sophia', 'Patel', 'Mumbai', 'PayPal', 'New Orleans', 'Sycamore Lane', 33101, 8, 8, 8, 8),
 (9, 'Jackson', 'Hayes', 'Barcelona', 'Cash', 'Casablanca', 'Magnolia Court', 20001, 9, 9, 9, 9),
-(10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10, 10, 10, 10)
+(10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10, 10, 10, 10);
+
+ALTER TABLE Perdoruesi
+ALTER COLUMN Rruga varchar(50);
+
+Select *
+From Perdoruesi
 
 
 INSERT INTO NrTel (IDNrTel, ID_Perdoruesi, Emri, Mbiemri, Destinacioni, MenyraEPageses, Qyteti, Rruga, ZIPCode, PerdoruesiID)
 VALUES
-(5551234567, 1, 'John', 'Doe', 'London', 'Credit Card', 'Seoul', 'Maple Avenue', 90210, 1),
-(9876543210, 2, 'Olivia', 'Thompson', 'Paris', 'PayPal', 'Vancouver', 'Elm Street', 10001, 2),
-(1234567890, 3, 'Ethan', 'Reynolds', 'Tokyo', 'Cash', 'Nairobi', 'Oak Lane', 30301, 3),
-(5559876543, 4, 'Ava', 'Mitchell', 'Istanbul', 'PayPal', 'Reykjavik', 'Cedar Boulevard', 75201, 4),
-(7890123456, 5, 'Mason', 'Turner', 'Cairo', 'Credit Card', 'Lima', 'Pinecrest Drive', 94102, 5),
-(2345678901, 6, 'Zoe', 'Ramirez', 'Sydney', 'PayPal', 'Munich', 'Willow Lane', 60601, 6),
-(8765432109, 7, 'Caleb', 'Morgan', 'Vancouver', 'Credit Card', 'Mumbai', 'Birchwood Terrace', 90045, 7),
-(3210987654, 8, 'Sophia', 'Patel', 'Mumbai', 'PayPal', 'New Orleans', 'Sycamore Lane', 33101, 8),
-(4567890123, 9, 'Jackson', 'Hayes', 'Barcelona', 'Cash', 'Casablanca', 'Magnolia Court', 20001, 9),
-(9998887777, 10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10)
+(5551234, 1, 'John', 'Doe', 'London', 'Credit Card', 'Seoul', 'Maple Avenue', 90210, 1),
+(9876543, 2, 'Olivia', 'Thompson', 'Paris', 'PayPal', 'Vancouver', 'Elm Street', 10001, 2),
+(1234567, 3, 'Ethan', 'Reynolds', 'Tokyo', 'Cash', 'Nairobi', 'Oak Lane', 30301, 3),
+(5559876, 4, 'Ava', 'Mitchell', 'Istanbul', 'PayPal', 'Reykjavik', 'Cedar Boulevard', 75201, 4),
+(7890123, 5, 'Mason', 'Turner', 'Cairo', 'Credit Card', 'Lima', 'Pinecrest Drive', 94102, 5),
+(2345678, 6, 'Zoe', 'Ramirez', 'Sydney', 'PayPal', 'Munich', 'Willow Lane', 60601, 6),
+(8765432, 7, 'Caleb', 'Morgan', 'Vancouver', 'Credit Card', 'Mumbai', 'Birchwood Terrace', 90045, 7),
+(3210987, 8, 'Sophia', 'Patel', 'Mumbai', 'PayPal', 'New Orleans', 'Sycamore Lane', 33101, 8),
+(4567890, 9, 'Jackson', 'Hayes', 'Barcelona', 'Cash', 'Casablanca', 'Magnolia Court', 20001, 9),
+(9998887, 10, 'Lily', 'Bennett', 'Buenos Aires', 'PayPal', 'Osaka', 'Juniper Way', 97201, 10);
+
+ALTER TABLE NrTel
+ALTER COLUMN Rruga varchar(50);
+
+Select * 
+From NrTel
 
 
 INSERT INTO Pagesa (ID_Perdoruesi, ID_Pagesa, DataPageses, ShumaPageses, PerdoruesiID)
 VALUES
-  (1, 1, '2023-01-01', 100),
-  (2, 2, '2023-01-02', 150),
-  (3, 3, '2023-01-03', 200),
-  (4, 4, '2023-01-04', 120),
-  (5, 5, '2023-01-05', 180),
-  (6, 6, '2023-01-06', 90),
-  (7, 7, '2023-01-07', 130),
-  (8, 8, '2023-01-08', 110),
-  (9, 9, '2023-01-09', 160),
-  (10, 10, '2023-01-10', 140);
+  (1, 1, '2023-01-01', 100, 1),
+  (2, 2, '2023-01-02', 150, 2),
+  (3, 3, '2023-01-03', 200, 3),
+  (4, 4, '2023-01-04', 120, 4),
+  (5, 5, '2023-01-05', 180, 5),
+  (6, 6, '2023-01-06', 90, 6),
+  (7, 7, '2023-01-07', 130, 7),
+  (8, 8, '2023-01-08', 110, 8),
+  (9, 9, '2023-01-09', 160, 9),
+  (10, 10, '2023-01-10', 140, 10);
 
   Select *
-  From Pagesa -- me bo sc
+  From Pagesa
+
+
 
 INSERT INTO Banka (ID_Banka, NumriKontaktues, Shteti, ZIPCode, Rruga)
 VALUES
@@ -283,6 +297,7 @@ VALUES
 Select *
 From Ushqimi -- me bo sc
 
+
 INSERT INTO Permbajtja (Emri, ID_Permbajtja, Lloji, DataProdhimit, DataSkadimit, UshqimiEmri, UshqimiID)
 VALUES
   ('Permbajtja1', 1, 'Kinez', '2023-01-01', '2023-01-10', 'Sushi', 1),
@@ -312,6 +327,9 @@ VALUES
   (9, 'Sydney', 'Seoul', 9, 9),
   (10, 'Munich', 'San Francisco', 10, 10);
 
+  Select *
+  From Fluturimi
+
 
 INSERT INTO Koha (ID_Koha, ID_Fluturimi, Vendndodhja, Destinacioni, FluturimiID)
 VALUES
@@ -326,6 +344,15 @@ VALUES
   (9, 9, 'Sydney', 'Seoul', 9),
   (10, 10, 'Munich', 'San Francisco', 10);
 
+ALTER TABLE Koha
+ALTER COLUMN Vendndodhja varchar(50);
+
+ALTER TABLE Koha
+ALTER COLUMN Destinacioni varchar(50);
+
+Select *
+From Koha
+
 
 INSERT INTO Aeroporti (ID_Aeroporti, Emri, Qyteti, Shteti, Rruga, FluturimiID)
 VALUES
@@ -339,6 +366,12 @@ VALUES
   (8, 'Istanbul Airport', 'Istanbul', 'Turkey', 'Tayakadın', 8),
   (9, 'Singapore Airport ', 'Singapore', 'Singapore', 'Airport Boulevard', 9),
   (10, 'Frankfurt Airport', 'Frankfurt', 'Germany', 'Hugo-Eckener-Ring', 10);
+
+ALTER TABLE Aeroporti
+ALTER COLUMN Rruga varchar(50);
+
+Select *
+From Aeroporti -- me bo sc(no data)
 
 INSERT INTO Agjensioni (ID_Agjensioni, Emri, Licensa, Rruga, Qyteti)
 VALUES
@@ -361,12 +394,71 @@ ALTER COLUMN Emri varchar(50);
 
 Select * 
 From Agjensioni
--- Table: Marreveshje
-INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja)
+
+INSERT INTO Aeroplani (ID_Aeroplani, Pronari, Lloji, VitiProdhimit, AgjensioniID)
 VALUES
-(1, 1, 'Agreement 1'),
-(1, 2, 'Agreement 2'),
--- ... add 23 more records ...
+  (1, 'Delta Air Lines', 'Airbus A380', 2020, 1),
+  (2, 'British Airways', 'Boeing 747', 2019, 2),
+  (3, 'Emirates', 'Airbus A330', 2018, 3),
+  (4, 'Air France', 'Boeing 777', 2017, 4),
+  (5, 'Air China', 'Boeing 787', 2016, 5),
+  (6, 'Qantas Airways', 'Airbus A350', 2015, 6),
+  (7, 'American Airlines', 'Boeing 767:', 2014, 7),
+  (8, 'Turkish Airlines', 'Airbus A320', 2013, 8),
+  (9, 'Singapore Airlines', 'Boeing 737', 2012, 9),
+  (10, 'Lufthansa', 'Embraer E-Jet', 2011, 10);
+
+ALTER TABLE Aeroplani
+ALTER COLUMN Pronari varchar(50);
+
+Select *
+From Aeroplani
+
+INSERT INTO Ulesja (ID_Aeroplani, ID_Ulesja, Lloji, Klasa, Vendi, AeroplaniID)
+VALUES
+  (1, 1, 'Family Seat', 'Family', '1A', 1),
+  (2, 2, 'Bussiness Seat', 'Bussiness', '2B', 2),
+  (3, 3, 'VIP Seat', 'VIP', '3C', 3),
+  (4, 4, 'First Seat', 'First', '4D', 4),
+  (5, 5, 'Second Seat', 'Second', '5A', 5),
+  (6, 6, 'Family Seat', 'Family', '7D', 6),
+  (7, 7, 'Bussiness Seat', 'Bussiness', '9C', 7),
+  (8, 8, 'Bussiness Seat', 'Bussiness', '3E', 8),
+  (9, 9, 'First Seat', 'First', '9Q', 9),
+  (10, 10, 'Second Seat', 'Second', '2R', 10);
+
+Select *
+From Ulesja
+
+
+INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja, AeroportiID, AgjensioniID)
+VALUES
+  (1, 1, 'Marreveshja1', 1, 1),
+  (2, 2, 'Marreveshja2', 2, 2),
+  (3, 3, 'Marreveshja3', 3, 3),
+  (4, 4, 'Marreveshja4', 4, 4),
+  (5, 5, 'Marreveshja5', 5, 5),
+  (6, 6, 'Marreveshja6', 6, 6),
+  (7, 7, 'Marreveshja7', 7, 7),
+  (8, 8, 'Marreveshja8', 8, 8),
+  (9, 9, 'Marreveshja9', 9, 9),
+  (10, 10, 'Marreveshja10', 10, 10);
+  /*(11, 11, 'Marreveshja11', 11, 11),
+  (12, 12, 'Marreveshja12', 12, 12),
+  (13, 13, 'Marreveshja13', 13, 13),
+  (14, 14, 'Marreveshja14', 14, 14),
+  (15, 15, 'Marreveshja15', 15, 15),
+  (16, 16, 'Marreveshja16', 16, 16),
+  (17, 17, 'Marreveshja17', 17, 17),
+  (18, 18, 'Marreveshja18', 18, 18),
+  (19, 19, 'Marreveshja19', 19, 19),
+  (20, 20, 'Marreveshja20', 20, 20),
+  (21, 21, 'Marreveshja21', 21, 21),
+  (22, 22, 'Marreveshja22', 22, 22),
+  (23, 23, 'Marreveshja23', 23, 23),
+  (24, 24, 'Marreveshja24', 24, 24),
+  (25, 25, 'Marreveshja25', 25, 25);*/
+
 
 -- Updating 20 records
 -- UPDATE statement with conditions based on your data
