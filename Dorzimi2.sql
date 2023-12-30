@@ -294,7 +294,7 @@ VALUES
   ('Cheesecake', 10, 'Snack', '2023-01-10', '2023-01-19',10);
 
 Select *
-From Ushqimi -- me bo sc
+From Ushqimi
 
 INSERT INTO Permbajtja (Emri, ID_Permbajtja, Lloji, DataProdhimit, DataSkadimit, UshqimiEmri, UshqimiID)
 VALUES
@@ -508,8 +508,47 @@ WHERE PerdoruesiID IN (8,10);
 Select *
 From Pagesa
 
+UPDATE Banka
+SET NumriKontaktues = 44444111
+WHERE ID_Banka LIKE(2);
+
+UPDATE Banka
+SET NumriKontaktues = 45444111
+WHERE ID_Banka LIKE(5);
+
+Select *
+From Banka
 
 
+UPDATE Rezervimi
+SET Data = '2023-01-02'
+WHERE ID_Rezervimi = 7;
 
+UPDATE Rezervimi
+SET Data = '2023-10-05'
+WHERE ID_Rezervimi IN (6,9);
 
+Select *
+From Rezervimi
 
+UPDATE Fluturimi
+SET Vendndodhja = 'Prishtine', Destinacioni = 'Stamboll'
+WHERE ID_Fluturimi LIKE (1);
+
+UPDATE Fluturimi
+SET Vendndodhja = 'Tirane', Destinacioni = 'Beograd'
+WHERE ID_Fluturimi IN (4,5);
+
+Select *
+From Fluturimi
+
+UPDATE Koha
+SET Vendndodhja = 'Prishtine', Destinacioni = 'Stamboll'
+WHERE ID_Koha LIKE (1);
+
+UPDATE Koha
+SET Vendndodhja = 'Tirane', Destinacioni = 'Beograd'
+WHERE ID_Koha IN (4,5);
+
+Select *
+From Koha
