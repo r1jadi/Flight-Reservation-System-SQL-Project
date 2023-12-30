@@ -463,20 +463,50 @@ VALUES
   From Marreveshje
 
 
+UPDATE Perdoruesi
+SET Emri = 'Rijad', Mbiemri = 'Halili'
+WHERE ID_Perdoruesi IN (1);
+
+UPDATE Perdoruesi
+SET Emri = 'Filan', Mbiemri = 'Fisteku'
+WHERE ID_Perdoruesi = 6;
+
+Select *
+From Perdoruesi
 
 
--- Updating 20 records
--- UPDATE statement with conditions based on your data
-UPDATE YourTableName
-SET YourColumnName = YourNewValue
-WHERE YourCondition;
+UPDATE NrTel
+SET Emri = 'Rijad', Mbiemri = 'Halili'
+WHERE ID_Perdoruesi = 1;
 
--- Deleting 10 records
--- DELETE statement with conditions based on your data
-DELETE FROM YourTableName
-WHERE YourCondition;
+UPDATE NrTel
+SET Emri = 'Filan', Mbiemri = 'Fisteku'
+WHERE ID_Perdoruesi = 6;
 
+Select *
+From NrTel
 
+UPDATE SistemiWEB
+SET Webfaqja = 'www.newweb.com'
+WHERE ID_Sistemi = 4;
+
+UPDATE SistemiWEB
+SET KohaFillimit = '07:01:00', KohaMbarimit = '07:02:57'
+WHERE ID_Sistemi = 4;
+
+Select *
+From SistemiWEB
+
+UPDATE Pagesa
+SET ShumaPageses = 300
+WHERE PerdoruesiID IN (5,6);
+
+UPDATE Pagesa
+SET ShumaPageses = 450
+WHERE PerdoruesiID IN (8,10);
+
+Select *
+From Pagesa
 
 
 
