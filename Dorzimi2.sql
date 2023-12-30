@@ -2,7 +2,7 @@
 
 Use Sistemi 
 
-Create table Perdoruesi( -- u kry
+Create table Perdoruesi(
 	ID_Perdoruesi int Primary Key,
 	Emri varchar(15) not null,
 	Mbiemri varchar(15) not null,
@@ -45,7 +45,7 @@ CREATE TABLE NrTel (
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-CREATE TABLE Pagesa ( -- su kry
+CREATE TABLE Pagesa (
     ID_Perdoruesi INT,
     ID_Pagesa INT,
     DataPageses DATE NOT NULL,
@@ -203,12 +203,11 @@ ALTER COLUMN Rruga varchar(50);
 Select *
 From Perdoruesi
 
-
 INSERT INTO NrTel (IDNrTel, ID_Perdoruesi, Emri, Mbiemri, Destinacioni, MenyraEPageses, Qyteti, Rruga, ZIPCode, PerdoruesiID)
 VALUES
 (5551234, 1, 'John', 'Doe', 'London', 'Credit Card', 'Seoul', 'Maple Avenue', 90210, 1),
 (9876543, 2, 'Olivia', 'Thompson', 'Paris', 'PayPal', 'Vancouver', 'Elm Street', 10001, 2),
-(1234567, 3, 'Ethan', 'Reynolds', 'Tokyo', 'Cash', 'Nairobi', 'Oak Lane', 30301, 3),
+(1234567, 3, 'Ethan', 'Reynolds', 'Tokyo', 'Cash', 'Nairobi', 'Oak Lane', 30301, 3), -- u fshi
 (5559876, 4, 'Ava', 'Mitchell', 'Istanbul', 'PayPal', 'Reykjavik', 'Cedar Boulevard', 75201, 4),
 (7890123, 5, 'Mason', 'Turner', 'Cairo', 'Credit Card', 'Lima', 'Pinecrest Drive', 94102, 5),
 (2345678, 6, 'Zoe', 'Ramirez', 'Sydney', 'PayPal', 'Munich', 'Willow Lane', 60601, 6),
@@ -222,7 +221,6 @@ ALTER COLUMN Rruga varchar(50);
 
 Select * 
 From NrTel
-
 
 INSERT INTO Pagesa (ID_Perdoruesi, ID_Pagesa, DataPageses, ShumaPageses, PerdoruesiID)
 VALUES
@@ -239,8 +237,6 @@ VALUES
 
   Select *
   From Pagesa
-
-
 
 INSERT INTO Banka (ID_Banka, NumriKontaktues, Shteti, ZIPCode, Rruga)
 VALUES
@@ -328,7 +324,6 @@ VALUES
   Select *
   From Fluturimi
 
-
 INSERT INTO Koha (ID_Koha, ID_Fluturimi, Vendndodhja, Destinacioni, FluturimiID)
 VALUES
   (1, 1, 'Atlanta', 'Beijing', 1),
@@ -350,7 +345,6 @@ ALTER COLUMN Destinacioni varchar(50);
 
 Select *
 From Koha
-
 
 INSERT INTO Aeroporti (ID_Aeroporti, Emri, Qyteti, Shteti, Rruga, FluturimiID)
 VALUES
@@ -430,7 +424,6 @@ VALUES
 Select *
 From Ulesja
 
-
 INSERT INTO Marreveshje (ID_Agjensioni, ID_Aeroporti, Marreveshja, AeroportiID, AgjensioniID)
 VALUES
   (1, 1, 'Marreveshja1', 1, 1),
@@ -443,6 +436,7 @@ VALUES
   (8, 8, 'Marreveshja8', 8, 8),
   (9, 9, 'Marreveshja9', 9, 9),
   (10, 10, 'Marreveshja10', 10, 10);
+
   /*(11, 11, 'Marreveshja11', 11, 11),
   (12, 12, 'Marreveshja12', 12, 12),
   (13, 13, 'Marreveshja13', 13, 13),
@@ -462,7 +456,6 @@ VALUES
   Select *
   From Marreveshje
 
-
 UPDATE Perdoruesi
 SET Emri = 'Rijad', Mbiemri = 'Halili'
 WHERE ID_Perdoruesi IN (1);
@@ -473,7 +466,6 @@ WHERE ID_Perdoruesi = 6;
 
 Select *
 From Perdoruesi
-
 
 UPDATE NrTel
 SET Emri = 'Rijad', Mbiemri = 'Halili'
@@ -518,7 +510,6 @@ WHERE ID_Banka LIKE(5);
 
 Select *
 From Banka
-
 
 UPDATE Rezervimi
 SET Data = '2023-01-02'
@@ -571,3 +562,8 @@ WHERE ID_Ulesja = 10;
 
 Select *
 From Ulesja
+
+DELETE FROM NrTel
+WHERE ID_Perdoruesi = 3;
+
+-- edhe 9 tjera delete
