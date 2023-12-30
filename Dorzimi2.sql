@@ -22,14 +22,14 @@ Create table Perdoruesi( -- u kry
 	AeroplaniID INT FOREIGN KEY REFERENCES Aeroplani(ID_Aeroplani)
 );
 
-Create Table SistemiWEB( --u kry
+Create Table SistemiWEB(
 	ID_Sistemi int Primary Key,
 	Webfaqja varchar(30) not null,
 	KohaFillimit time,
 	KohaMbarimit time
 );
 
-CREATE TABLE NrTel ( -- u kry
+CREATE TABLE NrTel (
     IDNrTel INT,
     ID_Perdoruesi INT,
     Emri VARCHAR(15) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE NrTel ( -- u kry
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-CREATE TABLE Pagesa (
+CREATE TABLE Pagesa ( -- su kry
     ID_Perdoruesi INT,
     ID_Pagesa INT,
     DataPageses DATE NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE Pagesa (
     PerdoruesiID INT FOREIGN KEY REFERENCES Perdoruesi(ID_Perdoruesi)
 );
 
-Create Table Banka( -- u kry
+Create Table Banka(
 	ID_Banka int Primary Key,
 	NumriKontaktues int not null,
 	Shteti varchar(15) not null,
@@ -63,14 +63,14 @@ Create Table Banka( -- u kry
 	Rruga varchar(15) not null
 );
 
-Create Table Rezervimi( -- u kry
+Create Table Rezervimi(
 	ID_Rezervimi int Primary Key,
 	Data date not null,
 	Ulesja int not null,
 	NumriFluturimit int not null
 );
 
-Create Table Ushqimi( -- u kry
+Create Table Ushqimi(
 	Emri varchar(15),
 	ID_Rezervimi int,
     Lloji varchar(15) not null,
@@ -81,7 +81,7 @@ Create Table Ushqimi( -- u kry
     RezervimiID INT FOREIGN KEY REFERENCES Rezervimi(ID_Rezervimi)
 );
 
-Create Table Permbajtja( -- u kry
+Create Table Permbajtja(
 	Emri varchar(15),
 	ID_Permbajtja int,
 	Lloji varchar(15) not null,
@@ -95,7 +95,7 @@ Create Table Permbajtja( -- u kry
 	
 );
 
-Create Table Fluturimi( -- u kry
+Create Table Fluturimi(
 	ID_Fluturimi int Primary Key,
 	Vendndodhja varchar(15) not null,
 	Destinacioni varchar(15) not null,
@@ -105,7 +105,7 @@ Create Table Fluturimi( -- u kry
 	
 );
 
-Create Table Koha( -- u kry
+Create Table Koha(
 	ID_Koha INT,
 	ID_Fluturimi INT,
 	Vendndodhja varchar not null,
@@ -117,7 +117,7 @@ Create Table Koha( -- u kry
 
 );
 
-Create Table Aeroporti( -- u kry
+Create Table Aeroporti(
 	ID_Aeroporti int primary key,
 	Emri varchar(15) not null,
 	Qyteti varchar(15) not null,
@@ -128,7 +128,7 @@ Create Table Aeroporti( -- u kry
 	
 );
 
-Create Table Agjensioni( -- u kry
+Create Table Agjensioni(
 	ID_Agjensioni int primary key,
 	Emri varchar(15) not null,
 	Licensa varchar(15) not null,
@@ -136,8 +136,7 @@ Create Table Agjensioni( -- u kry
 	Qyteti varchar(15) not null,
 );
 
-
-Create Table Aeroplani(-- u kry
+Create Table Aeroplani(
 	ID_Aeroplani int primary key,
 	Pronari varchar(15) not null,
 	Lloji varchar(15) not null,
@@ -146,7 +145,7 @@ Create Table Aeroplani(-- u kry
 	AgjensioniID INT FOREIGN KEY REFERENCES Agjensioni(ID_Agjensioni)
 );
 
-Create Table Ulesja( -- u kry
+Create Table Ulesja(
 	ID_Aeroplani int,
 	ID_Ulesja int,
 	Lloji varchar(15) not null,
@@ -157,7 +156,7 @@ Create Table Ulesja( -- u kry
 	AeroplaniID INT FOREIGN KEY REFERENCES Aeroplani(ID_Aeroplani)
 );
 
-Create Table Marreveshje( --u kry
+Create Table Marreveshje(
 	ID_Agjensioni INT,
 	ID_Aeroporti INT,
 
@@ -281,22 +280,21 @@ VALUES
 Select *
 From Rezervimi
 
-INSERT INTO Ushqimi (Emri, ID_Rezervimi, Lloji, DataProdhimit, DataSkadimit)
+INSERT INTO Ushqimi (Emri, ID_Rezervimi, Lloji, DataProdhimit, DataSkadimit, RezervimiID)
 VALUES
-  ('Sushi', 1, 'Kinez', '2023-01-01', '2023-01-10'),
-  ('Pasta Carbonara', 2, 'Pasta', '2023-01-02', '2023-01-11'),
-  ('Tacos', 3, 'Mexican', '2023-01-03', '2023-01-12'),
-  ('Chicken Curry', 4, 'Indian', '2023-01-04', '2023-01-13'),
-  ('Pizza', 5, 'Italian', '2023-01-05', '2023-01-14'),
-  ('Caesar Salad', 6, 'Greek', '2023-01-06', '2023-01-15'),
-  ('Chocolate', 7, 'Snack', '2023-01-07', '2023-01-16'),
-  ('Beef Stir-Fry', 8, 'Meat', '2023-01-08', '2023-01-17'),
-  ('Falafel Wrap', 9, 'Snack', '2023-01-09', '2023-01-18'),
-  ('Cheesecake', 10, 'Snack', '2023-01-10', '2023-01-19');
+  ('Sushi', 1, 'Kinez', '2023-01-01', '2023-01-10',1),
+  ('Pasta Carbonara', 2, 'Pasta', '2023-01-02', '2023-01-11',2),
+  ('Tacos', 3, 'Mexican', '2023-01-03', '2023-01-12',3),
+  ('Chicken Curry', 4, 'Indian', '2023-01-04', '2023-01-13',4),
+  ('Pizza', 5, 'Italian', '2023-01-05', '2023-01-14',5),
+  ('Caesar Salad', 6, 'Greek', '2023-01-06', '2023-01-15',6),
+  ('Chocolate', 7, 'Snack', '2023-01-07', '2023-01-16',7),
+  ('Beef Stir-Fry', 8, 'Meat', '2023-01-08', '2023-01-17',8),
+  ('Falafel Wrap', 9, 'Snack', '2023-01-09', '2023-01-18',9),
+  ('Cheesecake', 10, 'Snack', '2023-01-10', '2023-01-19',10);
 
 Select *
 From Ushqimi -- me bo sc
-
 
 INSERT INTO Permbajtja (Emri, ID_Permbajtja, Lloji, DataProdhimit, DataSkadimit, UshqimiEmri, UshqimiID)
 VALUES
@@ -369,9 +367,11 @@ VALUES
 
 ALTER TABLE Aeroporti
 ALTER COLUMN Rruga varchar(50);
+ALTER TABLE Aeroporti
+ALTER COLUMN Emri varchar(50);
 
 Select *
-From Aeroporti -- me bo sc(no data)
+From Aeroporti 
 
 INSERT INTO Agjensioni (ID_Agjensioni, Emri, Licensa, Rruga, Qyteti)
 VALUES
@@ -458,6 +458,11 @@ VALUES
   (23, 23, 'Marreveshja23', 23, 23),
   (24, 24, 'Marreveshja24', 24, 24),
   (25, 25, 'Marreveshja25', 25, 25);*/
+
+  Select *
+  From Marreveshje
+
+
 
 
 -- Updating 20 records
