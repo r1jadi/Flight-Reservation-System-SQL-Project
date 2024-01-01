@@ -566,4 +566,29 @@ From Ulesja
 DELETE FROM NrTel
 WHERE ID_Perdoruesi = 3;
 
--- edhe 9 tjera delete
+DELETE FROM Pagesa
+WHERE PerdoruesiID = 6;
+
+DELETE FROM Permbajtja
+WHERE UshqimiID = 3;
+
+DELETE FROM Koha
+WHERE ID_Fluturimi = 2;
+
+DELETE FROM Ulesja
+WHERE ID_Aeroplani = 2;
+
+DELETE FROM Marreveshje
+WHERE ID_Agjensioni = 2;
+
+DELETE FROM Permbajtja
+WHERE UshqimiEmri = 'Chocolate';
+
+DELETE FROM Ushqimi
+WHERE Emri = 'Chocolate';
+
+DELETE FROM Marreveshje
+WHERE AeroportiID = 4;
+
+DELETE FROM Aeroporti
+WHERE ID_Aeroporti = 4;
