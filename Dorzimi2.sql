@@ -612,3 +612,19 @@ From Pagesa
 WHERE ShumaPageses > 150 AND NOT DataPageses = '2023-01-04'
 
 --Te thjeshta 1 tabele(Erjoni)
+
+Select *
+From NrTel
+Where IDNrTel IN(5551234, 2345678)
+
+Select Data, Ulesja
+From Rezervimi
+WHERE Ulesja IN (1,2,3,4) AND Data = '2023-01-01'
+
+Select *
+From Ushqimi
+Where RezervimiID = 10
+
+Select Emri, Qyteti, FluturimiID
+From Aeroporti
+Where Shteti LIKE 'U%'
