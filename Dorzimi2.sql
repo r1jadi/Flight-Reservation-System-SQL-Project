@@ -592,3 +592,23 @@ WHERE AeroportiID = 4;
 
 DELETE FROM Aeroporti
 WHERE ID_Aeroporti = 4;
+
+
+--Te thjeshta 1 tabele(Rijadi)
+Select Emri, Mbiemri, Destinacioni
+From Perdoruesi
+Where Emri LIKE 'R%' AND Destinacioni = 'London'
+
+Select ID_Aeroplani, Pronari, VitiProdhimit
+From Aeroplani
+Where VitiProdhimit > 2015 AND Pronari IN ('British Airways', 'Air China')
+
+Select *
+From SistemiWEB
+WHERE ID_Sistemi in (1,2,4,5)
+
+Select ID_Pagesa, DataPageses, ShumaPageses
+From Pagesa
+WHERE ShumaPageses > 150 AND NOT DataPageses = '2023-01-04'
+
+--Te thjeshta 1 tabele(Erjoni)
