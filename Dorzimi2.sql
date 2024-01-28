@@ -628,3 +628,20 @@ Where RezervimiID = 10
 Select Emri, Qyteti, FluturimiID
 From Aeroporti
 Where Shteti LIKE 'U%'
+
+--Te thjeshta 2 tabela(Rijadi)
+SELECT p.Emri, p.Mbiemri, s.Webfaqja
+FROM Perdoruesi p, SistemiWEB s
+WHERE s.ID_Sistemi = p.SistemiID and p.Emri like 'Rijad'
+
+SELECT a.Lloji, u.Vendi
+FROM Aeroplani a, Ulesja u
+WHERE a.ID_Aeroplani = u.AeroplaniID and u.Lloji = 'Bussiness Seat'
+
+SELECT p.Emri, p.Mbiemri, b.NumriKontaktues
+FROM Perdoruesi p, Banka b
+WHERE b.ID_Banka = p.BankaID and p.Emri like 'J%'
+
+SELECT a.Emri, a.Qyteti, f.Destinacioni
+FROM Aeroporti a, Fluturimi f
+WHERE f.ID_Fluturimi = a.FluturimiID and a.FluturimiID in(1,2,3,4,5)
