@@ -594,7 +594,7 @@ DELETE FROM Aeroporti
 WHERE ID_Aeroporti = 4;
 
 
---Te thjeshta 1 tabele(Rijadi)
+--4 Te thjeshta 1 tabele(Rijadi)
 Select Emri, Mbiemri, Destinacioni
 From Perdoruesi
 Where Emri LIKE 'R%' AND Destinacioni = 'London'
@@ -611,7 +611,7 @@ Select ID_Pagesa, DataPageses, ShumaPageses
 From Pagesa
 WHERE ShumaPageses > 150 AND NOT DataPageses = '2023-01-04'
 
---Te thjeshta 1 tabele(Erjoni)
+--4 Te thjeshta 1 tabele(Erjoni)
 
 Select *
 From NrTel
@@ -629,7 +629,7 @@ Select Emri, Qyteti, FluturimiID
 From Aeroporti
 Where Shteti LIKE 'U%'
 
---Te thjeshta 2 tabela(Rijadi)
+-- 4 Te thjeshta 2 tabela(Rijadi)
 SELECT p.Emri, p.Mbiemri, s.Webfaqja
 FROM Perdoruesi p, SistemiWEB s
 WHERE s.ID_Sistemi = p.SistemiID and p.Emri like 'Rijad'
@@ -645,3 +645,34 @@ WHERE b.ID_Banka = p.BankaID and p.Emri like 'J%'
 SELECT a.Emri, a.Qyteti, f.Destinacioni
 FROM Aeroporti a, Fluturimi f
 WHERE f.ID_Fluturimi = a.FluturimiID and a.FluturimiID in(1,2,3,4,5)
+
+-- 4 te avancuara 2 tabela(Rijadi)
+SELECT m.Marreveshja, agj.Emri, ar.Emri
+FROM Marreveshje m
+JOIN Agjensioni agj 
+ON agj.ID_Agjensioni = m.AgjensioniID
+JOIN Aeroporti ar 
+ON ar.ID_Aeroporti = m.AeroportiID
+WHERE m.AeroportiID IN (1,2,3,4,5)
+GROUP BY m.Marreveshja, agj.Emri, ar.Emri
+
+SELECT r.ID_Rezervimi, u.Lloji, p.DataSkadimit
+FROM Ushqimi u, Rezervimi r, Permbajtja p
+WHERE r.ID_Rezervimi = u.RezervimiID AND u.Emri = p.UshqimiEmri
+
+SELECT r.ID_Rezervimi, u.Lloji, p.DataSkadimit
+FROM Rezervimi r
+JOIN Ushqimi u 
+ON r.ID_Rezervimi = u.RezervimiID
+JOIN Permbajtja p
+ON u.Emri = p.UshqimiEmri
+
+SELECT m.Marreveshja, agj.Emri, ar.Emri
+FROM Marreveshje m, Agjensioni agj, Aeroporti ar
+WHERE m.AgjensioniID = agj.ID_Agjensioni AND m.AeroportiID = ar.ID_Aeroporti AND m.AeroportiID IN (1, 2, 3, 4, 5)
+GROUP BY m.Marreveshja, agj.Emri, ar.Emri
+
+
+
+
+
