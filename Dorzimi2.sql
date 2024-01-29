@@ -673,6 +673,41 @@ WHERE m.AgjensioniID = agj.ID_Agjensioni AND m.AeroportiID = ar.ID_Aeroporti AND
 GROUP BY m.Marreveshja, agj.Emri, ar.Emri
 
 
+-- 4 me subquery te thjeshta (Rijadi)
+Select *
+From SistemiWEB s
+WHERE s.ID_Sistemi <
+		(
+		SELECT AVG(s.ID_Sistemi)mesatarja
+		FROM SistemiWEB s
+
+		)
+
+
+Select ID_Aeroplani, Pronari, VitiProdhimit
+From Aeroplani a
+Where a.VitiProdhimit < ALL
+		(
+		Select AVG(a.VitiProdhimit) 
+		FROM Aeroplani a
+		)
+
+SELECT *
+FROM Pagesa p
+WHERE p.ShumaPageses > ALL
+		(
+		SELECT AVG(p.ShumaPageses)
+		FROM Pagesa p
+		)
+
+SELECT *
+FROM Ulesja u
+WHERE u.Klasa IN(
+					SELECT u.Klasa
+					FROM Ulesja u
+					WHERE u.Klasa = 'Family'
+			
+					)
 
 
 
