@@ -768,7 +768,6 @@ END
 
 EXECUTE GetAllPerdoruesit
 
---
 
 CREATE PROCEDURE findPagesa(@Pagesa INT)
 AS
@@ -780,26 +779,6 @@ END
 
 EXECUTE findPagesa 100
 
-
----
-
-CREATE PROCEDURE printNrHobi(@Id DECIMAL(18,0))
-AS
-BEGIN
-	DECLARE @nrHobive INT
-	
-	SELECT @nrHobive = COUNT(*)
-					FROM Personi_Hobi ph
-					WHERE ph.ID_Personi = @Id
-					
-	IF(@nrHobive > 1)
-	print 'Personi ka me shume se nje hobi'
-	ELSE
-	print 'Personi ka vetem nje hobi'
-	
-end
-
-EXECUTE printNrHobi 2
 
 CREATE PROCEDURE pagesaKusht(@ID DECIMAL(18,0))
 AS
