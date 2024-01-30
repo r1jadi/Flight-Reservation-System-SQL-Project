@@ -709,5 +709,116 @@ WHERE u.Klasa IN(
 			
 					)
 
+-- 4 me subquery te avancuara (Rijadi)
+SELECT *
+FROM Perdoruesi p INNER JOIN  (SELECT pg.PerdoruesiID, AVG(ShumaPageses) as mesatarjaPageses
+FROM Pagesa pg
+GROUP BY pg.PerdoruesiID) AS Pagesat
+ON p.ID_Perdoruesi = Pagesat.PerdoruesiID
+
+SELECT *
+FROM Rezervimi r LEFT JOIN(SELECT u.RezervimiID, SUM(RezervimiID) as shumaID
+FROM Ushqimi u
+GROUP BY u.RezervimiID) AS SHUMA
+ON r.ID_Rezervimi = SHUMA.RezervimiID
+
+SELECT p.Emri AS EmriP, p.Mbiemri AS MbiemriP, (
+	SELECT f.Vendndodhja + ' ne ' + f.Destinacioni 
+    FROM Fluturimi f 
+    WHERE f.AeroplaniID = p.AeroplaniID) AS Fluturimi
+FROM Perdoruesi p
+
+SELECT p.Emri AS Emrip, p.Mbiemri AS Mbiemrip, pa.DataPageses, pa.ShumaPageses,
+    (SELECT Webfaqja FROM SistemiWEB sw WHERE sw.ID_Sistemi = p.SistemiID) AS SistemiWebfaqja
+FROM Perdoruesi p JOIN Pagesa pa 
+ON p.ID_Perdoruesi = pa.ID_Perdoruesi
+
+SELECT r.ID_Rezervimi, r.Data, p.Emri AS Emrip, p.Mbiemri AS MbiemriP,
+    (SELECT Vendndodhja FROM Fluturimi f WHERE f.ID_Fluturimi = r.NumriFluturimit) AS Vendndodhja,
+    (SELECT Destinacioni FROM Fluturimi f WHERE f.ID_Fluturimi = r.NumriFluturimit) AS Destinacioni
+FROM Rezervimi r JOIN Perdoruesi p 
+ON r.ID_Rezervimi = p.ID_Perdoruesi
+
+
+-- 4 me query me algjeber relacionale (Rijadi)
+SELECT Emri, Mbiemri
+FROM Perdoruesi
+WHERE ID_Perdoruesi IN (SELECT ID_Perdoruesi FROM Rezervimi INTERSECT SELECT ID_Perdoruesi FROM Pagesa)
+
+SELECT Emri, Mbiemri
+FROM Perdoruesi
+WHERE ID_Perdoruesi IN (SELECT ID_Perdoruesi FROM Rezervimi EXCEPT SELECT ID_Perdoruesi FROM Pagesa)
+
+SELECT DISTINCT Destinacioni
+FROM Fluturimi
+WHERE ID_Fluturimi IN (SELECT ID_Fluturimi FROM Marreveshje)
+
+SELECT Emri, Mbiemri
+FROM Perdoruesi
+WHERE ID_Perdoruesi NOT IN (SELECT ID_Perdoruesi FROM Pagesa)
+
+
+-- 4 stored procedures (Rijadi)
+CREATE PROCEDURE GetAllPerdoruesit
+AS
+BEGIN
+    SELECT *
+    FROM Perdoruesi;
+END
+
+EXECUTE GetAllPerdoruesit
+
+--
+
+CREATE PROCEDURE findPagesa(@Pagesa INT)
+AS
+BEGIN
+	SELECT *
+	FROM Pagesa p
+	WHERE p.ShumaPageses = @Pagesa
+END
+
+EXECUTE findPagesa 100
+
+
+---
+
+CREATE PROCEDURE printNrHobi(@Id DECIMAL(18,0))
+AS
+BEGIN
+	DECLARE @nrHobive INT
+	
+	SELECT @nrHobive = COUNT(*)
+					FROM Personi_Hobi ph
+					WHERE ph.ID_Personi = @Id
+					
+	IF(@nrHobive > 1)
+	print 'Personi ka me shume se nje hobi'
+	ELSE
+	print 'Personi ka vetem nje hobi'
+	
+end
+
+EXECUTE printNrHobi 2
+
+CREATE PROCEDURE pagesaKusht(@ID DECIMAL(18,0))
+AS
+BEGIN
+	DECLARE @ShumaPageses INT
+	SELECT @ShumaPageses = COUNT(*)
+						FROM Pagesa psh
+						WHERE psh.ID_Pagesa = @ID
+
+	IF(@ShumaPageses > 150)
+	print 'Shuma eshte me e madhe se 150'
+	ELSE
+	print 'Shuma eshte me e vogel se 150'
+end
+
+EXECUTE pagesaKusht 5
+
+
+
+
 
 
