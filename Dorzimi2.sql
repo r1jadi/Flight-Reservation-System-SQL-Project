@@ -796,6 +796,42 @@ end
 
 EXECUTE pagesaKusht 5
 
+CREATE PROCEDURE UpdateFlightDetails
+AS
+BEGIN
+
+    UPDATE Fluturimi
+    SET Vendndodhja = 'Prishtine', Destinacioni = 'Stamboll'
+    WHERE ID_Fluturimi = 1;
+
+    UPDATE Fluturimi
+    SET Vendndodhja = 'Tirane', Destinacioni = 'Beograd'
+    WHERE ID_Fluturimi IN (4,5);
+
+    UPDATE Koha
+    SET Vendndodhja = 'Prishtine', Destinacioni = 'Stamboll'
+    WHERE ID_Koha = 1;
+
+    UPDATE Koha
+    SET Vendndodhja = 'Tirane', Destinacioni = 'Beograd'
+    WHERE ID_Koha IN (4,5);
+
+    UPDATE Ulesja
+    SET Lloji = 'Family Seat', Klasa = 'Family', Vendi = '2Z'
+    WHERE ID_Ulesja = 5;
+
+    UPDATE Ulesja
+    SET Lloji = 'VIP Seat', Klasa = 'VIP', Vendi = '3V'
+    WHERE ID_Ulesja = 6;
+
+    UPDATE Ulesja
+    SET Lloji = 'Family Seat', Klasa = 'Family', Vendi = '4F'
+    WHERE ID_Ulesja = 8;
+END
+
+EXEC UpdateFlightDetails
+
+
 
 
 
